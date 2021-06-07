@@ -133,7 +133,7 @@ These problems are solved using various optimizers such as:
   - The previous optimizer that used this method(Adagrad) had a problem where it accumulated the squares of the gradients up to a point where the sum became too large and the learning rate kept on shrinking to extremely small values. 
   - RMSProp resolves this by introducing a decay rate(γ), that reduces the rate at which the square of gradients get added. This ensures that while the learning rate changes based on previous updates, it doesn't shrink too much.  
   - The cache and weight updating is done as follows:  
-    ![RMSProp](images/RMSPropUpdate.png)  
+    ![RMSProp](images/RMSPropUpdate.jpg)  
     ϵ is just a small number used to ensure that division by 0 doesn't take place. 
   - RMSProp ensures a proper learning rate that starts of fast but slows down as the network gets closer to the minima without needing to manually update it.
 
@@ -141,10 +141,10 @@ These problems are solved using various optimizers such as:
   - Adam or Adaptive Moment Estimation acts like a combination of momentum and RMSProp
   - Along with maintaining an exponentially decaying average of the squares of gradients like RMSProp, it also maintains an exponentially decaying average of past gradients like momentum(called m). 
   - It does this using the following equations:    
-  ![Adam Para](images/AdamParaUpdate.png)
+  ![Adam Para](images/AdamParaUpdate.jpg)
   Where β<sub>1</sub> and β<sub>2</sub> are decay rates that have to be selected.
   - Since m and cache vectors are initialized to 0, they tend to biased toward 0. This bias is corrected using the following formulae:  
-  ![Adam Bias](images/AdamBiasCorrection.png)  
+  ![Adam Bias](images/AdamBiasCorrection.jpg)  
   - Finally, the weights are updated according to both terms:  
-  ![Adam Update](images/AdamUpdate.png) 
+  ![Adam Update](images/AdamUpdate.jpg) 
 
