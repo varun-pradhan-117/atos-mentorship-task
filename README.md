@@ -2,11 +2,19 @@
  
 ### What is a neural network neuron?
 A neuron is the basic unit of a neural network. Multiple neurons form a layer and a neural network is made up of a number of these layers.  
-Each neuron can take multiple inputs and has a weight vector associated with it. The neuron multiplies the inputs with these weights and provides a single scalar output which is the sum of these multiplied inputs with a bias subtracted from it. Once this single output is produced, it's passed on to an activation function that transforms the weighted sum into the output from the node. This activation function is non-linear and can be as simple as a threshold function that returns 0 if the weighted sum is less than x and 1 if it is greater than x. However most commonly used activation functions are non-linear functions with various possible outputs instead of a simple binary output, this allows the neural network to solve non-trivial problems with a reasonable number of neurons and layers.
+- Each neuron can take multiple inputs and has a weight vector associated with it. The neuron multiplies the inputs with these weights and provides a single scalar output which is the sum of these multiplied inputs with a bias subtracted from it.  
+- This scalar output is then passed on to an activation function that transforms the weighted sum into the output from the node.  
+- This activation function is generally a non-linear function with various possible outputs that also help signify the degree of activation of the neuron. This allows the neural network to solve non-trivial problems with a reasonable number of neurons and layers.
   
 ### What is an activation function? Why do we need activation function in Neural Network?  
 An activation function is essentially a "gate" of sorts between the input of a neuron and the output. It determines whether the given inputs will result in any output from the neuron (neuron is activated or not) and what that output will be (degree of activation).  
-Commonly used activation functions are sigmoid function, tanh, softmax, and rectified linear unit(ReLU) and its variants.
+
+Commonly used activation functions are:
+- Sigmoid function:  The sigmoid function is of the form 1/(1+e<sup>z</sup>).
+ - The graph looks like ![Sigmoid Graph](../images/SigmoidGraph.png)
+- tanh function: 
+- Softmax function:
+- Rectified linear unit(ReLU) and its variants.
   
 Without an activation function, a neuron will simply return the sum of the inputs multiplied by the weights. This linear transformation, while computationally simple, is unable to solve any complex, non-trivial problems. It would act like a linear regression model. On the other hand if non-linearity is added, a neural network, if used properly, can always represent an approximation for almost any transformation. This is why we use an activation function to add non-linearity to the neural network and allow it to solve complex problems with a reasonable number of neurons and layers.  
   
