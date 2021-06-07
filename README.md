@@ -117,7 +117,7 @@ These problems are solved using various optimizers such as:
   - The problem with standard SGD is that when the when it reaches an area with a an extremely steep slope in one dimension and a gentle slope in another dimension, it oscillates wildly a across the steeper slopes but makes small progress towards the gentler slope.  
 ![without momentum](images/without_momentum.jpg)
   - This problem is resolved by adding a fraction of older update vectors to the new update vectors. The update vector is modified as such:  
-    ![update momentum](images/MomentumUpdate.png)
+    ![update momentum](images/MomentumUpdate.jpg)
     - Where V is the momentum factor  
       γ is the coefficient of momentum  
       α is the learning rate  
