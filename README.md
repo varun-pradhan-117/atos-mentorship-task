@@ -133,7 +133,7 @@ These problems are solved using various optimizers such as:
   - The previous optimizer that used this method(Adagrad) had a problem where it accumulated the squares of the gradients up to a point where the sum became too large and the learning rate kept on shrinking to extremely small values. 
   - RMSProp resolves this by introducing a decay rate(γ), that reduces the rate at which the square of gradients get added. This ensures that while the learning rate changes based on previous updates, it doesn't shrink too much.  
   - The cache and weight updating is done as follows:  
-    ![RMSProp](images/RMSPropUpdate.jpg)  
+    ![RMSProp](https://github.com/varun-pradhan-117/atos-mentorship-task/blob/main/images/RMSPropUpdate.JPG)  
     ϵ is just a small number used to ensure that division by 0 doesn't take place. 
   - RMSProp ensures a proper learning rate that starts of fast but slows down as the network gets closer to the minima without needing to manually update it.
 
