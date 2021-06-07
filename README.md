@@ -1,28 +1,54 @@
 # atos-mentorship-task
  
-### What is a neural network neuron?
+### **What is a neural network neuron?**
 A neuron is the basic unit of a neural network. Multiple neurons form a layer and a neural network is made up of a number of these layers.  
 - Each neuron can take multiple inputs and has a weight vector associated with it. The neuron multiplies the inputs with these weights and provides a single scalar output which is the sum of these multiplied inputs with a bias subtracted from it.  
 - This scalar output is then passed on to an activation function that transforms the weighted sum into the output from the node.  
 - This activation function is generally a non-linear function with various possible outputs that also help signify the degree of activation of the neuron. This allows the neural network to solve non-trivial problems with a reasonable number of neurons and layers.
   
-### What is an activation function? Why do we need activation function in Neural Network?  
+### **What is an activation function? Why do we need activation function in Neural Network?**  
 An activation function is essentially a "gate" of sorts between the input of a neuron and the output. It determines whether the given inputs will result in any output from the neuron (neuron is activated or not) and what that output will be (degree of activation).  
 
 Commonly used activation functions are:
 - Sigmoid function:  The sigmoid function is of the form f(z)=1/(1+e<sup>-z</sup>).
-  - The sigmoid curve looks like an S: ![Sigmoid Graph](images/SigmoidGraph.jpg)  
+  - The sigmoid curve looks like an S:  
+  ![Sigmoid Graph](images/SigmoidGraph.jpg)  
   - Sigmoid function takes any input and transforms it between the range of 0 to 1. 
   - As a result, sigmoid function is mostly used for classification problems, or situations where a probability has to be calculated.
   - Sigmoid function suffers from a few drawbacks since the function isn't centered around 0, and as it reduces the there's almost no change in the output for very large and very small values of z, it also suffers from a vanishing gradient problem.  
 
-- tanh function: The tanh function is of the form f(z)=tanh(z) 
-- Softmax function:
-- Rectified linear unit(ReLU) and its variants.
+- tanh function: The tanh function is of the form f(z) = tanh(z) = (e<sup>z</sup>-e<sup>-z</sup>)/(e<sup>z</sup>+e<sup>-z</sup>).  
+  - The graph also has an S-shape, similar to the sigmoid function:  
+  ![tanh Graph](images/tanh.jpg)  
+  - Unlike the sigmoid function, tanh function ranges from -1 to 1 and has a stronger distinction between negative and positive values.  
+  - Since tanh is centered around 0, unlike sigmoid function, and there's a stronger distinction between negative and positive values, it has performs better than the sigmoid function since it provides larger gradients.  
+  - Tanh is also use for probabilistic predictions.
+- Softmax function:  
+  - In multiclass classification problems, it's highly desirable to get the probability for each class label as a value between 0 and 1, and the sum of these probabilities to be equal to 1.  
+  - The softmax activation function is used in the output layer of the NN to enforce the above constraints.  
+  - The softmax function is presented as ![softmax formula](images/softmax-formula.png) for each output node.  
+  - Softmax function is essentially a combination of multiple sigmoid functions and actually reduces to a single sigmoid function for a binary classification problem.  
+
+- Rectified linear unit(ReLU): ReLU is currently the most commonly used activation function.  
+  - It's a simple function of the form f(z) = max(0.0,z).  
+  ![reLu Graph](images/reLUGraph.png)  
+  - It resolves the problem of the vanishing gradient that affects the sigmoid and tanh functions since the derivative is either 1 or 0. Its simple nature also makes it compute much faster than the previous functions that used exponents.  
+  - While it resolves the vanishing gradient problem, it also suffers from a drawbacks like overfitting and a unique problem known as the "Dying ReLU":  
+    - All negative values are directly converted to 0 and the gradient of the function becomes 0. If this happens to too many neurons, the network suffers from a sparsity problem and is unable to perform proper backpropagation.  
+  - These drawbacks are overcome by techniques like:  
+    - Using dropouts: Some nodes in a layer are randomly ignored during training, this avoids overfitting by making sure that the network doesn't rely on the output of a select few nodes.  
+    - Using variations of ReLU such as Leaky ReLU: Leaky ReLU gives a non-zero value to negative values by using a function like f(z) = max(0.01x,x). This ensures that even negative values have a small positive slope. This prevents the dying ReLU problem and backpropagation can continue for negative values.  
+    
   
-Without an activation function, a neuron will simply return the sum of the inputs multiplied by the weights. This linear transformation, while computationally simple, is unable to solve any complex, non-trivial problems. It would act like a linear regression model. On the other hand if non-linearity is added, a neural network, if used properly, can always represent an approximation for almost any transformation. This is why we use an activation function to add non-linearity to the neural network and allow it to solve complex problems with a reasonable number of neurons and layers.  
+- Without an activation function, a neuron will simply return the sum of the inputs multiplied by the weights. 
+- This linear transformation, while computationally simple, is unable to solve any complex, non-trivial problems. It would act like a linear regression model. 
+- On the other hand if non-linearity is added, a neural network, if used properly, can always represent an approximation for almost any transformation. 
+- As a result, an activation function is used to add non-linearity to the neural network and allow it to solve complex problems with a reasonable number of neurons and layers.  
   
-### What is "loss" in a neural network?
+
+    
+
+### **What is "loss" in a neural network?**
 "loss" in a neural network gives us an idea of how much a predicted value returned by the NN differs from the actual value. It is also called the error. The function used to measure this "loss" for each training input is called a loss function. It is essentially a measure of how poorly the NN performs for the given training input. Since the loss function has to be selected by the programmer, it is important to select the right loss function for a given task. For example for a regression model where the goal is to predict a continuous value, mean squared error would be an appropriate loss function. But for a classification model, we use log-based loss functions such as binary or categorical cross-entropy based on the number of possible classes.
 
 ### What do you mean by embeddings?  
