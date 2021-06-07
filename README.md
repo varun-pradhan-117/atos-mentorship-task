@@ -11,7 +11,7 @@ An activation function is essentially a "gate" of sorts between the input of a n
 
 Commonly used activation functions are:
 - Sigmoid function:  The sigmoid function is of the form 1/(1+e<sup>z</sup>).
- - The graph looks like ![Sigmoid Graph](../images/SigmoidGraph.png)
+ - The sigmoid curve looks like an S: ![Sigmoid Graph](images/SigmoidGraph.png)
 - tanh function: 
 - Softmax function:
 - Rectified linear unit(ReLU) and its variants.
