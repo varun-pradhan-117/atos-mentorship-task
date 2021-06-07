@@ -10,9 +10,13 @@ A neuron is the basic unit of a neural network. Multiple neurons form a layer an
 An activation function is essentially a "gate" of sorts between the input of a neuron and the output. It determines whether the given inputs will result in any output from the neuron (neuron is activated or not) and what that output will be (degree of activation).  
 
 Commonly used activation functions are:
-- Sigmoid function:  The sigmoid function is of the form 1/(1+e<sup>-z</sup>).
- - The sigmoid curve looks like an S: ![Sigmoid Graph](images/SigmoidGraph.png)
-- tanh function: 
+- Sigmoid function:  The sigmoid function is of the form f(z)=1/(1+e<sup>-z</sup>).
+  - The sigmoid curve looks like an S: ![Sigmoid Graph](images/SigmoidGraph.jpg)  
+  - Sigmoid function takes any input and transforms it between the range of 0 to 1. 
+  - As a result, sigmoid function is mostly used for classification problems, or situations where a probability has to be calculated.
+  - Sigmoid function suffers from a few drawbacks since the function isn't centered around 0, and as it reduces the there's almost no change in the output for very large and very small values of z, it also suffers from a vanishing gradient problem.  
+
+- tanh function: The tanh function is of the form f(z)=tanh(z) 
 - Softmax function:
 - Rectified linear unit(ReLU) and its variants.
   
