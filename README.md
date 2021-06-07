@@ -27,7 +27,7 @@ Commonly used activation functions are:
 **3. Softmax function:**  
   - In multiclass classification problems, it's highly desirable to get the probability for each class label as a value between 0 and 1, and the sum of these probabilities to be equal to 1.  
   - The softmax activation function is used in the output layer of the NN to enforce the above constraints.  
-  - The softmax function is presented as ![softmax formula](images/softmax-formula.png) for each output node.  
+  - The softmax function is presented as ![softmax formula](images/softmax-formula.jpg) for each output node.  
   - Softmax function is essentially a combination of multiple sigmoid functions and actually reduces to a single sigmoid function for a binary classification problem.  
 
 **4. Rectified linear unit(ReLU):** ReLU is currently the most commonly used activation function.  
